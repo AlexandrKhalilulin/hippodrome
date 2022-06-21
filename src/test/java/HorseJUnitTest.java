@@ -68,12 +68,14 @@ class HorseJUnitTest {
     })
     void moveSetRightDistance(double speed){
         Horse horse = new Horse("loshadka", 31, 5);
-        MockedStatic<Horse> horseMockedStatic = Mockito.mockStatic(Horse.class);
-        horseMockedStatic.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(speed);
-        double expected = horse.getDistance() + 31 * speed;
+        try (MockedStatic<Horse> horseMockedStatic = Mockito.mockStatic(Horse.class)) {
+            horseMockedStatic.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(speed);
+            double expected = horse.getDistance() + 31 * speed;
 
-        horse.move();
+            horse.move();
 
-        assertEquals(expected, horse.getDistance());
+            assertEquals(expected, horse.getDistance());
+        }
+
     }
 }
