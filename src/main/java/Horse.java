@@ -1,3 +1,4 @@
+import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -5,6 +6,7 @@ import static java.util.Objects.isNull;
 
 public class Horse {
     private static final Logger logger = LoggerFactory.getLogger(Horse.class);
+
 
     private final String name;
     private final double speed;
