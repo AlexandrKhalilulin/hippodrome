@@ -10,7 +10,7 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) throws Exception {
-        PropertyConfigurator.configure("src/main/resources/log4j.properties");
+        //PropertyConfigurator.configure("src/main/resources/log4j.properties");
         List<Horse> horses = List.of(
                 new Horse("Буцефал", 2.4),
                 new Horse("Туз Пик", 2.5),
@@ -24,7 +24,7 @@ public class Main {
         Hippodrome hippodrome = new Hippodrome(horses);
         logger.info("Начало скачек. Количество участников: {}", hippodrome.getHorses().size());
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 5; i++) {
             hippodrome.move();
             watch(hippodrome);
             TimeUnit.MILLISECONDS.sleep(200);
